@@ -1,23 +1,3 @@
-public class Main {
-    public static void main(String[] args) {
-        QuickSort<Integer> obj=new QuickSort<>();
-        Integer[] a=new Integer[9];
-        a[0]=6;
-        a[1]=5;
-        a[2]=4;
-        a[3]=7;
-        a[4]=9;
-        a[5]=1;
-        a[6]=2;
-        a[7]=3;
-        a[8]=0;
-        obj.sort(a);
-        for(Integer ax:a){
-            System.out.print(ax);
-        }
-    }
-}
-
 class QuickSort<E>{
     E[] arr;
     public void swap(int from, int to){
