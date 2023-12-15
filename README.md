@@ -1,5 +1,5 @@
 Backtracking
-1. Leetcode 22 -
+1. Leetcode 22 - Generate Paranthesis
    
       Leetcode Link - https://leetcode.com/problems/generate-parentheses/description/
    
