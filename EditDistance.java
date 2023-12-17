@@ -4,7 +4,7 @@ class Solution {
         if(word1.length()==0)return word2.length();
         if(word2.length()==0)return word1.length();
         dp=new Integer[word1.length()+1][word2.length()+1];
-        return backtrack(word1,word2,word1.length(),word2.length());
+        return iterative(word1,word2,word1.length(),word2.length());
     }
     public int backtrack(String a, String b, int i, int j){
         if(dp[i][j]!=null)return dp[i][j];
@@ -24,5 +24,23 @@ class Solution {
             dp[i][j]=min;
             return min;
         }
+    }
+    public int iterative(String a, String b, int x, int y){
+        dp[x][y]=0;
+        for(int i=x-1;i>=0;i--)dp[i][y]=x-i;
+        for(int i=y-1;i>=0;i--)dp[x][i]=y-i;
+        for(int i=x-1;i>=0;i--){
+            for(int j=y-1;j>=0;j--){
+                if(a.charAt(i)==b.charAt(j))
+                    dp[i][j]=dp[i+1][j+1];
+                else{
+                    int rep=1+dp[i+1][j+1];
+                    int ins=1+dp[i+1][j];
+                    int del=1+dp[i][j+1];
+                    dp[i][j]=Math.min(Math.min(rep,ins),del);
+                }
+            }
+        }
+        return dp[0][0];
     }
 }
